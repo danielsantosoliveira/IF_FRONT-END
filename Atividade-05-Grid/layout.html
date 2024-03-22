@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout - display: grid</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<style>
+    .container {
+        height: 95vh;
+        display: grid;
+        grid-template-columns: 5% 15% 50% 15% 5%;
+        grid-template-rows: 75px auto 70px;
+        grid-template-areas:
+            ". header header header ."
+            ". nav article ads ."
+            ". nav footer footer .";
+        gap: 10px;
+    }
+
+    header,
+    nav,
+    article,
+    #ads,
+    footer {
+        background-color: aquamarine;
+        padding: 10px;
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    nav {
+        grid-area: nav;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    #label {
+        cursor: pointer;
+    }
+
+    article {
+        grid-area: article;
+    }
+
+    #ads {
+        grid-area: ads;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <header>Header</header>
+        <nav>Nav
+            <label id="label" aria-placeholder="Hide"><-|</label>
+        </nav>
+        <article>Article</article>
+        <div id="ads">Ads</div>
+        <footer>Footer</footer>
+    </div>
+    <script>
+        let active = 0
+        $(document).ready(function () {
+            $("#label").click(function () {
+                if(active) {
+                    document.getElementById("label").innerHTML = "<-|"
+                    active = !active
+                    $(".container").css({
+                        "grid-template-columns": "5% 15% 50% 15% 5%"
+                    })
+                } else {
+                    document.getElementById("label").innerHTML = "|->"
+                    active = !active
+                    $(".container").css({
+                        "grid-template-columns": "5% 7% 60% 15% 5%"
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

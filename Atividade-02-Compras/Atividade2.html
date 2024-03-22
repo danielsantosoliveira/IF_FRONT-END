@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSO - Informática</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        #detalhePedido,
+        #detalheProduto {
+            border: 1px solid black;
+        }
+
+        .rowDetalhePedido {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .rowDetalhePedido>div {
+            margin: 20px;
+        }
+
+        .rowDetalhePedido div label {
+            display: block;
+        }
+
+        #myBuy h1 {
+            margin-bottom: 0;
+        }
+
+        .displayBlock {
+            margin: 10px 3px 20px 5px;
+        }
+
+        .displayBlock>input[type="email"],
+        input[type="password"] {
+            display: block;
+        }
+
+        .displayBlock>input[type="text"] {
+            display: block;
+        }
+
+        #detalheProduto {
+            margin: 20px 0px;
+        }
+
+        #detalheProduto {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        #detalheProduto>div {
+            margin: 20px;
+        }
+
+        #detalheProduto>div>h2 {
+            margin-bottom: 0px;
+        }
+
+        #detalheProduto>div>p {
+            margin-top: 0px;
+        }
+
+        #divImgProduto {
+            flex-grow: 1
+        }
+
+        #divDetalheProduto {
+            flex-grow: 8
+        }
+
+        #divPrecoProduto {
+            flex-grow: 1
+        }
+
+        #fsCondicoes>div>input[type="file"]>input[type="date"] {
+            margin: 0px 10px;
+        }
+
+        #detalhePagamentoEnvio {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #detalhePagamentoEnvio>div {
+            margin: 20px;
+        }
+
+        #fsOpiniao {
+            padding-bottom: 30px;
+        }
+
+        #fsOpiniao>div>h3 {
+            margin-bottom: 3px;
+        }
+
+        #corAgrado {
+            width: 125px;
+            height: 40px;
+            position: relative;
+            background-color: white;
+            padding: 0px 25px 0px 10px;
+        }
+
+        #corAgrado:after {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #000;
+            position: absolute;
+            top: 40%;
+            right: 5px;
+            content: "";
+        }
+
+        #fsCondicoes>div>h3 {
+            margin-bottom: 3px;
+        }
+
+        #fsCondicoes {
+            padding-bottom: 30px;
+        }
+
+        #btnSendReview {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Meus Pedidos</h1>
+        <ul>
+            <li><a href="#myData">Meus dados</a></li>
+            <li><a href="#myBuy">Minhas compras</a></li>
+            <li><a href="#myProduct">Avaliar produto</a></li>
+        </ul>
+    </header>
+    <main>
+        <section id="myData">
+            <form action="#">
+                <h1>Meus dados</h1>
+                <fieldset>
+                    <legend>Dados da conta</legend>
+                    <div class="displayBlock">
+                        <label for="email">E-mail</label>
+                        <input id="email" name="email" type="email" placeholder="ex. seuemail@gmail.com" />
+                    </div>
+                    <div class="displayBlock">
+                        <input name="receberEmail" type="checkbox" /> <label for="radio">Quero receber e-mails
+                            promocionais</label>
+                    </div>
+                    <div>
+                        <label for="senha">Senha</label>
+                        <input id="senha" name="senha" type="password" placeholder="use uma senha forte" />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Dados pessoais</legend>
+                    <div class="displayBlock">
+                        <label for="nome">Nome Completo</label>
+                        <input name="nome" type="text" id="nome" placeholder="ex: João da Silva" />
+                    </div>
+                    <div class="displayBlock">
+                        <label for="apelido">como gostaria que a gente te chamasse?</label>
+                        <input name="apelido" type="text" id="apelido" placeholder="Joãozin" />
+                    </div>
+                </fieldset>
+                <div>
+                    <button>Salvar alterações</button>
+                </div>
+            </form>
+        </section>
+        <section id="myBuy">
+            <h1>Minhas Compras</h1>
+            <div id="detalhePedido" class="rowDetalhePedido">
+                <div id="pedidoNumero">
+                    <label>Número do pedido</label>
+                    <label>#37945982</label>
+                </div>
+                <div id="pedidoStatus">
+                    <label>Status</label>
+                    <label>Concluído</label>
+                </div>
+                <div id="pedidoData">
+                    <label>Data</label>
+                    <label>12/12/2020</label>
+                </div>
+                <div id="pedidoFormaPagamento">
+                    <label>Forma de pagamento</label>
+                    <label>Cartão de crédito</label>
+                </div>
+                <div id="pedidoAcompanhamento">
+                    <dialog id="dialogAcompanhamento">
+                        <h2>Rastreio detalhado</h2>
+                        Seu pedido foi entregue com sucesso!<br>
+                        Entregue por: GFL<br>
+                        Código de Rastreio: 123456789<br>
+                        Entregue em: 12/12/2020<br>
+                        <button onclick="document.querySelector('#dialogAcompanhamento').close();">Fechar</button>
+                    </dialog>
+                    <label>Acompanhamento</label>
+                    <button onclick="document.querySelector('#dialogAcompanhamento').showModal();">Rastreio
+                        detalhado</button>
+                </div>
+            </div>
+            <div id="detalheProduto">
+                <div id="divImgProduto" style="flex-grow: 1">
+                    <img src="https://via.placeholder.com/100x70" alt="Imagem Produto" width="100" height="70">
+                </div>
+                <div id="divDetalheProduto" style="flex-grow: 8">
+                    <h2>Suporte Articulado para Monitor e Notebook de 13 a 32 Vinik<br>Aticulação Dupla - SMN500</h2>
+                    <p>Quantidade: 1<br><a href="#">Avaliar produto</a></p>
+                </div>
+                <div div="divPrecoProduto" style="flex-grow: 1">
+                    <p>R$<br>99,90</p>
+                </div>
+            </div>
+            <div>
+                <details>
+                    <summary>Detalhes do pagamento e envio</summary>
+                    <div id="detalhePagamentoEnvio">
+                        <div>
+                            <h2>Endereço de entrega</h2>
+                            <p>Avenida Estelita Falcão<br>Número 12, Centro<br>CEP 48170-970 - Água Fria/BA</p>
+                        </div>
+                        <div>
+                            <h2>Forma de pagamento</h2>
+                            <p>Cartão de crédito<br>Master Card **** **** **** 1234<br>Titular: João da Silva</p>
+                        </div>
+                        <div>
+                            <h2>Frete</h2>
+                            <p>R$ 15,52<br>Enviado por <strong>GFL</strong><br>Entregue</p>
+                        </div>
+                </details>
+            </div>
+        </section>
+        <hr size="1">
+        <section id="productReview">
+            <form action="#">
+                <h1>Avaliação do produto</h1>
+                <fieldset id="fsOpiniao">
+                    <legend>Opinião sobre o produto</legend>
+                    <div>
+                        <h3>Qual a cor do produto mais te agrada?</h3>
+                        <input type="color" name="corAgrado" id="corAgrado">
+                    </div>
+                    <div>
+                        <h3>O produto é de qualidade?</h3>
+                        <div>
+                            <input type="radio" id="ct" name="qualidade" value="ct" />
+                            <label for="ct">Concordo totalmente</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="c" name="qualidade" value="c" />
+                            <label for="c">Concordo</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="ned" name="qualidade" value="ned" />
+                            <label for="ned">Não estou decidido</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="d" name="qualidade" value="d" />
+                            <label for="d">Discordo</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="dt" name="qualidade" value="dt" />
+                            <label for="dt">Discordo Totalmente</label>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Para você, quais parâmetros são mais importantes na qualidade do produto?</h3>
+                        <div>
+                            <input type="checkbox" id="durabilidade" name="durabilidade" value="durabilidade" />
+                            <label for="durabilidade">Durabilidade</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="caracteristicas" name="caracteristicas"
+                                value="caracteristicas" />
+                            <label for="caracteristicas">Caracteristicas acessórias ou Features</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="confiabilidade" name="confiabilidade" value="confiabilidade" />
+                            <label for="confiabilidade">Confiabilidade</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="aparencia" name="aparencia" value="aparencia" />
+                            <label for="aparencia">Aparência</label>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Descreva a caracteristica que mais chamou sua atenção no produto</h3>
+                        <input list="caracteris" name="caracteristica" id="caracteristica">
+                        <datalist id="caracteris">
+                            <option value="Cor">
+                            <option value="Tamanho">
+                            <option value="Peso">
+                            <option value="Material">
+                        </datalist>
+                    </div>
+                </fieldset>
+                <fieldset id="fsCondicoes">
+                    <legend>Condições atuais</legend>
+                    <div>
+                        <h3>Adicione uma foto atual do produto</h3>
+                        <input type="file" name="foto" id="foto">
+                    </div>
+                    <div>
+                        <h3>Data da compra</h3>
+                        <input type="date" name="data" id="data">
+                    </div>
+                    <div>
+                        <h3>Deixe um comentário sobre as condições do produto</h3>
+                        <textarea id="comentario" name="comentario" rows="8" cols="30"></textarea>
+                    </div>
+                </fieldset>
+                <button id="btnSendReview">Enviar avaliação</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
