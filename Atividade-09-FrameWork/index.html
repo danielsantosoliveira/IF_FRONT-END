@@ -26,13 +26,18 @@
         }
 
         hr.solid {
-            border-top: 3px solid #bbb;
+            margin: 0;            
             min-width: 50%;
         }
 
         .card-body {
             display: flex;
             gap: 3px;
+        }
+
+        .overflowy{
+            max-height: 360px;
+            overflow-y: auto;
         }
 
         footer {
@@ -43,6 +48,7 @@
             text-decoration: none;
             color: black;
         }
+
     </style>
 </head>
 
@@ -55,7 +61,7 @@
                         <div class="card">
                             <h1 class="card-title">ToDos</h1>
                             <div class="card-body">
-                                <input id="inputToDoItem" class="form-control" type="text" placeholder="ToDo Label" v-model="inputToDoItem" ref="inputToDoItem">
+                                <input id="inputToDoItem" class="form-control" type="text" placeholder="ToDo Label" v-model="inputToDoItem" ref="inputToDoItem" @keyup.enter="addItem">
                                 <button type="button" class="btn btn-primary btn-sm" @click="addItem" :disabled="inputToDoItemValue">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
@@ -64,7 +70,7 @@
                             </div>
                             <hr class="solid">
                             <div class="card-body">
-                                <div class="container text-center">
+                                <div class="container text-center overflowy">
                                     <div class="row align-items-center" v-for="todoItem in todosList">
                                         <hr class="solid" v-if="todosList.indexOf(todoItem)">
                                         <div class="col">
@@ -133,6 +139,10 @@
             },
             methods: {
                 addItem() {
+                    if(!this.inputToDoItem.trim().length) {
+                        console.log("Aqui") 
+                        return
+                    }
                     this.todosList.push({
                         code: new Date().valueOf(),
                         label: this.inputToDoItem,
