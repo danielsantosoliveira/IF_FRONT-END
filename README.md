@@ -6,4 +6,6 @@ Repositório da disciplina Desenvolvimento Front-End IF Itapetininga
 [Atividade-02](https://github.com/danielsantosoliveira/IF_FRONT-END/tree/main/Atividade-02-Compras)    
 [Atividade-03](https://github.com/danielsantosoliveira/IF_FRONT-END/tree/main/Atividade-03-Compras)  
 [Atividade-04](https://github.com/danielsantosoliveira/IF_FRONT-END/tree/main/Atividade-04-Flexbox)  
-[Atividade-05](https://github.com/danielsantosoliveira/IF_FRONT-END/tree/main/Atividade-05-Grid)  
+[Atividade-05](https://github.com/danielsantosoliveira/IF_FRONT-END/tree/main/Atividade-05-Grid)
+[Atividade-08](https://github.com/danielsantosoliveira/IF_FRONT-END/tree/main/Atividade-08-ES6-e-FetchAPI)
+[Atividade-09](https://github.com/danielsantosoliveira/IF_FRONT-END/tree/main/Atividade-09-FrameWork)
