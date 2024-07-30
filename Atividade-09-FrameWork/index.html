@@ -139,10 +139,8 @@
             },
             methods: {
                 addItem() {
-                    if(!this.inputToDoItem.trim().length) {
-                        console.log("Aqui") 
-                        return
-                    }
+                    if(!this.inputToDoItem.trim().length) return
+
                     this.todosList.push({
                         code: new Date().valueOf(),
                         label: this.inputToDoItem,
